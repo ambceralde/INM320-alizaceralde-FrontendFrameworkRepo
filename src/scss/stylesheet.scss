@@ -1,0 +1,617 @@
+// DEFAULT STYLES
+
+// Font
+$font-family: "Mulish", sans-serif !default;
+
+// Colors
+$primary-color: #F7F8FC !default;
+$border-color: #DFE0EB !default;
+$text-muted: #9FA2B4 !default;
+$text-dark: #252733 !default;
+$sidebar-bg: rgba(54, 55, 64, 1) !default;
+$sidebar-text: #A4A6B3 !default;
+$sidebar-active: #DDE2FF !default;
+$primary-blue: #3751FF !default;
+$accent-blue: #3851ff !default;
+
+// Typography
+$font-size-base: 14px !default;
+$font-weight-normal: 400 !default;
+$font-weight-semibold: 600 !default;
+$font-weight-bold: 700 !default;
+
+// Spacing
+$sidebar-width: 255px !default;
+$main-content-padding: 33px !default;
+
+// Bootstrap Breakpoints
+$breakpoint-mobile: 767px !default;
+$breakpoint-tablet: 768px !default;
+$breakpoint-desktop: 992px !default;
+$breakpoint-small-mobile: 575.98px !default;
+
+// GLOBAL STYLES
+
+* {
+    font-family: $font-family;
+}
+
+body {
+    background-color: $primary-color;
+    font-size: $font-size-base;
+    font-family: $font-family;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, div, button, input, textarea, select {
+    font-family: $font-family;
+}
+
+// TOP NAVIGATION STYLES
+
+// Profile Section
+.profile {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    text-decoration: none !important;
+    color: inherit !important;
+    font-family: $font-family !important;
+    font-weight: $font-weight-semibold !important;
+    font-size: $font-size-base !important;
+    line-height: 20px !important;
+    letter-spacing: 0.2px !important;
+    text-align: right !important;
+    order: 1;
+}
+
+.profile svg {
+    order: 2;
+    width: 44px;
+    height: 44px;
+}
+
+// Divider 
+.d-flex.align-items-center.gap-3::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 32px;
+    background: $border-color;
+    margin: 0 30px;
+}
+
+// Notification Button
+.notifications {
+    position: relative;
+}
+
+// Search Button
+.search {
+    margin-right: 25px;
+}
+
+// SIDEBAR STYLES
+
+.sidebar {
+    width: $sidebar-width;
+    height: 100vh;
+    background: $sidebar-bg;
+    transition: transform 0.3s ease;
+    padding: 0;
+    font-family: $font-family;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow-y: auto;
+
+    // Dashboard Kit
+    .sidebar-header {
+        padding: 30px 0;
+        border-bottom: 1px solid rgba(223, 224, 235, 0.1);
+        display: flex;
+        align-items: center;
+        position: relative;
+        
+        .dashboard-circle {
+            width: 32px;
+            height: 32px;
+            background: $accent-blue;
+            border-radius: 50%;
+            margin-left: 32px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        h5 {
+            font-family: $font-family;
+            font-weight: $font-weight-bold;
+            font-size: 19px;
+            line-height: 100%;
+            letter-spacing: 0.4px;
+            color: $sidebar-text;
+            margin: 0;
+        }
+    }
+
+    // Navigation Items
+    .nav {
+        font-family: $font-family;
+
+        svg {
+            margin-right: 25px;  
+        }
+
+        .nav-item {
+            margin: 0;
+            position: relative;
+            font-family: $font-family;
+
+            .nav-link {
+                display: flex;
+                align-items: center;
+                width: $sidebar-width;
+                height: 56px;
+                padding: 0 0 0 32px;
+                color: $sidebar-text;
+                text-decoration: none;
+                background: transparent;
+                border-radius: 0;
+                transition: background 0.2s ease, color 0.2s ease;
+                position: relative;
+                
+                // Typography
+                font-family: $font-family;
+                font-weight: $font-weight-normal;
+                font-size: 16px;
+                line-height: 100%;
+                letter-spacing: 0.2px;
+
+                // Hover Effect
+                &:hover {
+                    background: rgba(159, 162, 180, 0.08);
+                    color: $sidebar-active;
+                }
+
+                // Current Page (Overview)
+                &.active {
+                    background: rgba(159, 162, 180, 0.08);
+                    color: $sidebar-active;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        height: 100%;
+                        width: 3px;
+                        background: $sidebar-active;
+                        border-radius: 0 2px 2px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// MAIN CONTENT STYLES
+
+main {
+    margin-left: $sidebar-width;
+    padding: 40px $main-content-padding $main-content-padding $main-content-padding !important;
+    width: calc(100% - #{$sidebar-width});
+    min-height: 100vh;
+}
+
+// Stats Section
+.stats-card {
+    height: 100%;
+    min-height: 134px;
+    border: 1px solid $border-color;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    .card-body {
+        padding: 30px 20px;
+    }
+    
+    .stats-label {
+        font-family: $font-family;
+        font-weight: $font-weight-bold;
+        font-size: 19px;
+        line-height: 100%;
+        letter-spacing: 0.4px;
+        text-align: center;
+        color: $text-muted;
+        margin-bottom: 28px !important;
+        transition: color 0.3s ease;
+    }
+    
+    .stats-number {
+        font-family: $font-family;
+        font-weight: $font-weight-bold;
+        font-size: 40px;
+        line-height: 100%;
+        letter-spacing: 1px;
+        text-align: center;
+        color: $text-dark;
+        margin: 0;
+        transition: color 0.3s ease;
+    }
+    
+    // Hover Effect
+    &:hover {
+        border-color: $primary-blue;
+        
+        .stats-label,
+        .stats-number {
+            color: $primary-blue;
+        }
+    }
+}
+
+// Row Spacing
+.row.g-3 {
+    --bs-gutter-x: 20px;
+    --bs-gutter-y: 20px;
+}
+
+// TRENDS STYLES
+
+.trends-card {
+    border-color: $border-color !important;
+    overflow: hidden;
+    margin-top: 40px;
+    
+    // Trends Title
+    .trends-title {
+        font-family: $font-family;
+        font-weight: $font-weight-bold;
+        font-size: 19px;
+        line-height: 100%;
+        letter-spacing: 0.4px;
+        color: $text-dark;
+        margin-bottom: 8px;
+    }
+    
+    // Trends Subtitle
+    .trends-subtitle {
+        font-family: $font-family;
+        font-weight: $font-weight-normal;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.1px;
+        color: $text-muted;
+        margin: 0;
+    }
+    
+    // Graph Container
+    .graph-container {
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        
+        .graph-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; // Changed from 'contain' to 'cover' to fill the entire space
+        }
+    }
+
+    
+    // Stats Container
+    .trends-stats-container {
+        border-left: 1px solid $border-color;
+        
+        .trends-stats-row {
+            display: flex;
+            
+            &:not(:last-child) {
+                border-bottom: 1px solid $border-color;
+            }
+        }
+        
+        .trends-stat-box {
+            border-color: $border-color !important;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            flex: 1;
+            
+            &:not(:last-child) {
+                border-right: 1px solid $border-color;
+            }
+            
+            // Stats Label
+            .stat-label {
+                font-family: $font-family;
+                font-weight: $font-weight-semibold;
+                font-size: 16px;
+                line-height: 22px;
+                letter-spacing: 0.3px;
+                color: $text-muted;
+                margin-bottom: 12px;
+            }
+            
+            // Stats Value
+            .stat-value {
+                font-family: $font-family;
+                font-weight: $font-weight-bold;
+                font-size: 24px;
+                line-height: 100%;
+                letter-spacing: 0.3px;
+                color: $text-dark;
+                margin: 0;
+            }
+        }
+    }
+}
+
+// BOTTOM PANEL STYLES
+
+.bottom-panel {
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    background: white;
+    
+    .panel-title {
+        font-family: $font-family;
+        font-weight: $font-weight-bold;
+        font-size: 19px;
+        line-height: 100%;
+        letter-spacing: 0.4px;
+        color: $text-dark;
+        margin: 0;
+    }
+    
+    .panel-subtitle {
+        font-family: $font-family;
+        font-weight: $font-weight-normal;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.1px;
+        color: $text-muted;
+        margin: 0;
+    }
+    
+    .view-link {
+        font-family: $font-family;
+        font-weight: $font-weight-semibold;
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        color: $primary-blue;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+            color: darken($primary-blue, 10%);
+        }
+    }
+    
+    // List Items
+    .list-group-item {
+        border-color: $border-color;
+        padding: 12px 0;
+        
+        span:last-child {
+            font-family: $font-family;
+            font-weight: $font-weight-semibold;
+        }
+
+        .number {
+            font-family: $font-family;
+            font-weight: $font-weight-semibold;
+            color: $text-muted;
+        }
+    }
+    
+    // Badges
+    .badge {
+        font-family: $font-family;
+        font-weight: $font-weight-bold;
+        font-size: 11px;
+        line-height: 100%;
+        letter-spacing: 0.5px;
+        padding: 5px 12px;
+        border-radius: 8px;
+    }
+    
+    .urgent-badge {
+        background-color: #FEC400;
+        color: #FFFFFF;
+    }
+    
+    .new-badge {
+        background-color: #29CC97;
+        color: #FFFFFF;
+    }
+    
+    .default-badge {
+        background-color: #F0F1F7;
+        color: $text-muted;
+    }
+    
+    .createnew-badge {
+        background-color: #F0F1F7;
+        color: $text-muted;
+        font-size: 15px;
+    }
+}
+
+// FORM STYLES
+
+// Circle Checkbox
+.circle-checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #C5C7CD;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+    position: relative;
+    vertical-align: middle;
+    
+    &:checked {
+        background-color: $primary-blue;
+        border-color: $primary-blue;
+    }
+    
+    &:checked::after {
+        content: '';
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+        width: 4px;
+        height: 8px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+    }
+    
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(55, 81, 255, 0.2);
+    }
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+}
+
+.newtask-item {
+    display: flex;
+    align-items: center;
+    color: #C5C7CD;
+}
+
+// MEDIA QUERIES
+
+// Mobile Styles
+@media (max-width: $breakpoint-mobile) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        transform: translateX(-100%);
+        z-index: 1000;
+        width: $sidebar-width;
+        font-family: $font-family;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .burger-btn {
+        display: inline-block;
+        font-size: 1.5rem;
+        cursor: pointer;
+        margin-right: 12px;
+        font-family: $font-family;
+    }
+
+    main {
+        margin-left: 0 !important;
+        width: 100%;
+        padding: 40px $main-content-padding $main-content-padding $main-content-padding !important;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .trends-stats-container {
+        border-left: none !important;
+        border-top: 1px solid $border-color;
+        
+        .trends-stats-row {
+            flex-direction: row;
+            
+            &:last-child {
+                .trends-stat-box {
+                    border-right: none !important;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $breakpoint-small-mobile) {
+    .trends-stat-box {
+        padding: 1.5rem 1rem !important;
+        
+        .stat-label {
+            font-size: 14px !important;
+            line-height: 18px !important;
+        }
+        
+        .stat-value {
+            font-size: 20px !important;
+        }
+    }
+    
+    .graph-container {
+            height: 250px;
+            padding: 5px;
+            
+            .graph-image {
+                object-fit: contain;
+            }
+        }
+    }
+
+    @media (max-width: 767px) and (min-width: 576px) {
+        .graph-container {
+            height: 280px;
+            
+            .graph-image {
+                object-fit: cover;
+            }
+        }
+    }
+
+// Desktop Styles
+@media (min-width: $breakpoint-tablet) {
+    .burger-btn {
+        display: none;
+    }
+
+    .sidebar {
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: $breakpoint-desktop) {
+    .trends-stats-container {
+        display: flex !important;
+        flex-direction: column;
+        height: 100%;
+        
+        .trends-stats-row {
+            display: contents !important;
+            .trends-stat-box {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 1.5rem 1rem;
+                border-right: none !important;
+                border-bottom: 1px solid $border-color;
+                
+                .stat-label,
+                .stat-value {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
